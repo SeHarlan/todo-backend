@@ -23,7 +23,7 @@ async function run() {
             );
         `);
 
-        console.log('create tables complete');
+        console.log('create tables completed');
     }
     catch (err) {
         // problem? let's see the error...
