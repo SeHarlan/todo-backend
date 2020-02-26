@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // API Routes
 
 // *** TODOS ***
-app.get('/api/todos', async (req, res) => {
+app.get('/api/todos', async(req, res) => {
 
     try {
         const result = await client.query(`
