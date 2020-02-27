@@ -98,8 +98,9 @@ app.put('/api/todos/:id', async(req, res) => {
         const result = await client.query(`
             UPDATE todos
             SET complete = $1
-            WHERE id = $2;
-        `, [complete, id]);
+            WHERE id = $2
+            AND user_id = $3;
+        `, [complete, id, req.userId]);
 
         res.json(result.rows[0]);
     }
@@ -116,8 +117,9 @@ app.delete('/api/todos/:id', async(req, res) => {
     try {
         const result = await client.query(`
             DELETE FROM todos
-            WHERE id = $1;
-        `, [id]);
+            WHERE id = $1
+            AND user_id = $2;
+        `, [id, req.userId]);
 
         res.json(result.rows[0]);
     }
